@@ -15,11 +15,26 @@ devise_for :end_users,skip: [:passwords], controllers: {
 
 # 管理者用(admin)
 namespace :admin do
+  resources :end_users
+  resources :posts
+  resources :comments
+
 end
 
 # 顧客用(public)
 scope module: :public do
   root to: 'homes#top'
+  get 'home/about'
+  get "end_users/my_page" => "end_users#show"
+
+  resources :end_users
+
+  resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+  end
+
+  resources :notifications
 end
 
 end

@@ -1,29 +1,59 @@
-<h2>Sign up</h2>
+<h2>会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
+<%= form_with model: @end_user, url: end_user_registration_path, local:true do |f| %>
+<%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :氏名 %><br>
+    <%= f.label :"姓", autofocus: true %>
+    <%= f.text_field :last_name %>
+    <%= f.label :"名" %>
+    <%= f.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :"フリガナ" %>
+    <%= f.label :"(セイ)" %>
+    <%= f.text_field :last_name_kana %>
+    <%= f.label :"(メイ)" %>
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"電話番号（ハイフン無し）" %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード（確認） %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録",class: "btn btn-sm btn-primary " %>
   </div>
+
+  <div class="row">
+    <div class="col-xl-4 ml-4">
+      <h5 style="background-color:#dcdcdc;", class="my-4">既に登録済みの方</h5>
+    </div>
+    </div>
+    <span class="col-xl-4 ml-4">
+  　   <%= link_to "こちら", "/end_users/sign_in" %>からログインして下さい。
+    </span>
+
 <% end %>
 
-<%= render "publics/shared/links" %>
