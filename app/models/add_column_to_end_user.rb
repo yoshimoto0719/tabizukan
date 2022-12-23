@@ -1,0 +1,2 @@
+class AddColumnToEndUser < ApplicationRecord
+end

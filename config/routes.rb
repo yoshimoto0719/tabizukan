@@ -26,6 +26,7 @@ scope module: :public do
   root to: 'homes#top'
   get 'home/about'
   get "end_users/my_page" => "end_users#show"
+  get "end_users/information" => "end_users#edit"
 
   resources :end_users
 
