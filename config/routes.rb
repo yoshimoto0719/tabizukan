@@ -29,6 +29,7 @@ scope module: :public do
   get "end_users/information" => "end_users#edit"
   get 'end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'
   patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
+  get "posts/new" => "posts#new"
 
   resources :end_users
 

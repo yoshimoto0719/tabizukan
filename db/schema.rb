@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(version: 2022_12_23_051008) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string "location"
+    t.text "description"
+    t.string "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
