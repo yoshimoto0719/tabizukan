@@ -16,12 +16,8 @@
                     <i class="fa-solid fa-user fa-3x"></i>
                     <% end %>
               </li>
+              <li class="mx-3"><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
           </ul>
+
     </nav>
 
-<!-- サイドバー用部分テンプレート -->
-<div class="d-flex flex-column flex-shrink-0 bg-light bg-dark" style="width: 150px; height: 810px;">
-    <div><a class="navbar-brand text-white m-5 pt-5 pb-5" href="">Post</a></div>
-    <div><a class="navbar-brand text-white m-5 pb-5" href="">Favorite</a></div>
-    <div><a class="navbar-brand text-white m-5 pt-5" href="">About</a></div>
-</div>
