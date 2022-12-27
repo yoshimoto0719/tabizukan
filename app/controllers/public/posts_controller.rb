@@ -6,12 +6,15 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.end_user_id = current_end_user.id
     @post.save
-    redirect_to post_path
+    redirect_to post_path(@post.id)
   end
 
-  def index
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def edit
   end
 
   private
