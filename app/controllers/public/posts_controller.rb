@@ -30,11 +30,14 @@ class Public::PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:location, :image, :description)
+    params.require(:post).permit(:location, :cost, :day1, :day2, :image, :description)
   end
 
 end

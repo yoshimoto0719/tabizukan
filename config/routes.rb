@@ -33,7 +33,10 @@ scope module: :public do
 
   resources :end_users
 
-  resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+  resources :posts do
+    collection do
+      get 'search'
+    end
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end

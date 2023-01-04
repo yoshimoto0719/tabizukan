@@ -4,6 +4,10 @@
       <%= f.file_field :image, accept: "image/*" %>
     <h4>場所</h4>
       <%= f.text_field :location %>
+    <h4>料金</h4>
+      ¥<%= f.text_field :cost %>
+    <h4>スケジュール</h4>
+      <%= f.text_field :day1 %>泊<%= f.text_field :day2 %>日
     <h4>説明</h4>
       <%= f.text_area :description %>
     <%= f.submit '投稿' %>

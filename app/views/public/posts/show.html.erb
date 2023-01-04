@@ -4,6 +4,10 @@
       <%= image_tag @post.image, size: "200x200" %>
     <h4>場所</h4>
       <%= @post.location %>
+    <h4>料金</h4>
+      ¥<%= @post.cost %>
+    <h4>スケジュール</h4>
+      <%= @post.day1 %>泊<%= @post.day2 %>日
     <h4>説明</h4>
       <%= @post.description %>
 

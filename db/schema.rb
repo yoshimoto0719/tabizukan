@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(version: 2022_12_23_051008) do
 
   create_table "posts", force: :cascade do |t|
     t.string "location"
+    t.string "cost"
+    t.string "day1"
+    t.string "day2"
     t.text "description"
     t.string "image_id"
     t.datetime "created_at", precision: 6, null: false
