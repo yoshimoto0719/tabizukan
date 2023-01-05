@@ -1,2 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.listings {
+
+  height: 100%;
+  width: 180px;
+  float: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  @media screen and (max-width: 600px) {
+    display: none;
+    position: absolute;
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.sidebar {
+  height: 100%;
+}
