@@ -14,11 +14,10 @@
         </div>
           <ul class="navbar-nav">
               <li class="nav-item active">
-                    <%= link_to end_users_my_page_path, method: :get do %>
+                    <%= link_to mypost_path, method: :get do %>
                     <i class="fa-solid fa-user fa-3x"></i>
                     <% end %>
               </li>
-              <li class="mx-3"><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
           </ul>
 
     </nav>

@@ -1,0 +1,12 @@
+<h1>My Posts</h1>
+
+<%= link_to end_users_my_page_path, method: :get do %>
+マイページへ
+<% end %>
+
+<% @posts.each do |post| %>
+          <%= link_to post_path(post) do %>
+          <%= image_tag post.image, size: "300x300" %>
+          <% end %>
+<% end %>
+

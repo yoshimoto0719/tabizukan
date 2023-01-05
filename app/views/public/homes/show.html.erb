@@ -1,4 +1,4 @@
-<h1>投稿詳細画面</h1>
+<h1>TimeL詳細画面</h1>
 
     <h4>投稿者</h4>
     <%= @end_user.last_name %> <%= @end_user.first_name %>
@@ -12,6 +12,3 @@
       <%= @post.day1 %>泊<%= @post.day2 %>日
     <h4>説明</h4>
       <%= @post.description %>
-
-    <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
-    <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

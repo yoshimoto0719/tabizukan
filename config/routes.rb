@@ -15,16 +15,18 @@ devise_for :end_users,skip: [:passwords], controllers: {
 
 # 管理者用(admin)
 namespace :admin do
+  get root to: 'homes#top'
   resources :end_users
   resources :posts
   resources :comments
-
 end
 
 # 顧客用(public)
 scope module: :public do
   root to: 'homes#top'
-  get 'home/about'
+  get "/homes/about" => "homes#about"
+  get 'homes/show' => "homes#show"
+  get 'posts/mypost' => 'posts#mypost', as: 'mypost'
   get "end_users/my_page" => "end_users#show"
   get "end_users/information" => "end_users#edit"
   get 'end_users/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe'

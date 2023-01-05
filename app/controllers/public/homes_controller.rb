@@ -4,4 +4,9 @@ class Public::HomesController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @end_user = EndUser.find(params[:id])
+  end
+
 end
