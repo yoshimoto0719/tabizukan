@@ -3,7 +3,7 @@
     <h4>投稿者</h4>
     <%= @end_user.last_name %> <%= @end_user.first_name %>
     <h4>画像</h4>
-      <%= image_tag @post.image, size: "200x200" %>
+      <%= image_tag @post.image, size: "800x500" %>
     <h4>場所</h4>
       <%= @post.location %>
     <h4>料金</h4>
@@ -17,3 +17,16 @@
       <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
       <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
+
+  <div>
+    <% if @post.favorited?(current_end_user) %>
+    <%= link_to post_favorite_path(@post.id), method: :delete do %>
+        <span style="color:red;">❤︎</span>
+    <% end %>
+    <% else %>
+    <%= link_to post_favorites_path(@post.id), method: :post do %>
+        <span>❤︎</span>
+    <% end %>
+    <% end %>
+  </div>
+
