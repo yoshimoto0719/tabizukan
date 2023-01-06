@@ -13,5 +13,7 @@
     <h4>説明</h4>
       <%= @post.description %>
 
-    <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
-    <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% if @post.end_user == current_end_user %>
+      <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
+      <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% end %>

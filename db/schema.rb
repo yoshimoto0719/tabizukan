@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_12_23_051008) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "end_user_id"
     t.string "location"
     t.string "cost"
     t.string "day1"
@@ -99,8 +100,10 @@ ActiveRecord::Schema.define(version: 2022_12_23_051008) do
     t.string "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["end_user_id"], name: "index_posts_on_end_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "posts", "end_users"
 end
