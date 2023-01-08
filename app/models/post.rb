@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def self.search(search)
-    if search != ""
-      @post = Post.where(['location LIKE(?) OR description LIKE(?)', "%#{search}%", "%#{search}%"])
+    if search
+      @post = Post.where('location LIKE(?) OR description LIKE(?)', "%#{search}%", "%#{search}%")
     else
       Post.all
     end
