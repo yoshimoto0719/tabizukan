@@ -10,3 +10,8 @@ Admin.create!(
   email: 'ysmt.0719@gmail.com',
   password: 'Yuta0719'
   )
+
+Tag.create([
+    { name: '国内' },
+    { name: '海外' },
+    ])
