@@ -33,7 +33,11 @@ scope module: :public do
   patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw'
   get "posts/new" => "posts#new"
 
-  resources :end_users
+  resources :end_users do
+    member do
+      get :favorites
+    end
+  end
 
   resources :posts do
     collection do

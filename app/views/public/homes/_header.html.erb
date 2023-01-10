@@ -6,6 +6,18 @@
         <a class="navbar-brand ml-5" href="/"><i class="fa-solid fa-plane fa-3x"></i></a>
         <div class="collapse navbar-collapse justify-content-center">
 
+            <!--タグ検索機能-->
+            <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+            <%= select_tag :tag_id,
+              options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                     {
+                       prompt: '国内/海外',
+                       onchange: 'submit(this.form);'
+                     }
+            %>
+            <% end %>
+
+            <!--検索機能-->
             <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form d-flex") do |f| %>
             <%= f.text_field :search %>
             <%= f.submit "search", class: "btn btn-primary" %>

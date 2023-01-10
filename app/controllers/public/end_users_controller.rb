@@ -1,6 +1,7 @@
 class Public::EndUsersController < ApplicationController
 
   before_action :authenticate_end_user!
+  before_action :set_end_user, only: [:favorites]
 
   def show
     @end_user = current_end_user
@@ -27,9 +28,20 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path, alert: "退会しました"
   end
 
+  def favorites
+    favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+
+  private
+
   def end_users_params
     params.require(:end_user).permit(
       :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :email)
   end
 
-end
+  def set_end_user
+    @end_user = EndUser.find(params[:id])
+  end
+
+  end

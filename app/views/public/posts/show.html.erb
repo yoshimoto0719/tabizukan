@@ -4,6 +4,9 @@
     <%= @end_user.last_name %> <%= @end_user.first_name %>
     <h4>画像</h4>
       <%= image_tag @post.image, size: "800x500" %>
+      <% @post.tags.each do |tag| %>
+    <%= tag.name %>
+    <% end %>
     <h4>場所</h4>
       <%= @post.location %>
     <h4>料金</h4>
@@ -20,7 +23,7 @@
 
   <div>
     <% if @post.favorited?(current_end_user) %>
-    <%= link_to post_favorite_path(@post.id), method: :delete do %>
+    <%= link_to post_favorites_path(@post.id), method: :delete do %>
         <span style="color:red;">❤︎</span>
     <% end %>
     <% else %>
