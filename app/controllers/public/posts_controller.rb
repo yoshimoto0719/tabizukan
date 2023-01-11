@@ -38,6 +38,7 @@ class Public::PostsController < ApplicationController
 
   def mypost
     @posts = current_end_user.posts
+    @end_user = current_end_user
   end
 
   private
