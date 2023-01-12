@@ -5,8 +5,8 @@
     <h4>画像</h4>
       <%= image_tag @post.image, size: "800x500" %>
       <% @post.tags.each do |tag| %>
-    <%= tag.name %>
-    <% end %>
+        <%= tag.name %>
+      <% end %>
     <h4>場所</h4>
       <%= @post.location %>
     <h4>料金</h4>
