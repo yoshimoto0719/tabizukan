@@ -4,16 +4,11 @@
 <h2 class = "seach-result">検索結果はありません</h2>
 <% else %>
 <div class = "post-contents">
-  <ul class = "post-list">
     <% @posts.each do |post| %>
-    <li class = "list">
       <%= link_to post_path(post.id) do %>
-      <%= image_tag post.image, class: "post-img" %>
-
-      <p class = "root-show">〜クリックして詳細を見る〜</p>
+      <%= image_tag post.image, size: "300x300", class: "post-img" %>
+      <p class = "root-show">information</p>
       <% end %>
-    </li>
     <% end %>
-  </ul>
 </div>
 <% end %>
