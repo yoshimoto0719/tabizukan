@@ -4,12 +4,12 @@
       <%= f.file_field :image, accept: "image/*" %>
   <div class="check_box">
     <h4>国内/海外</h4>
-      <%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
        <div>
          <%= tag.label do %>
-         <%= tag.check_box %>
-         <%= tag.text %>
-       <% end %>
+           <%= tag.check_box %>
+           <%= tag.text %>
+         <% end %>
        </div>
       <% end %>
   </div>
