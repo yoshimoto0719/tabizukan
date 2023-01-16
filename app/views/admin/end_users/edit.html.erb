@@ -2,16 +2,22 @@
 
 <div class="col-12">
       <%= form_with model: @end_user, url: admin_end_user_path, local:true do |f| %>
-
+        <%= render 'layouts/error_messages', resource: f.object %>
         <div class="form-group row text">
+          <div class="col-3">
           <%= f.label :id, "会員ID", class: "col-form-label col-3 font-weight-bold" %>
+          </div>
           <div class="col=8 light-text">
+            <div class="col-3">
             <%= f.label :id, @end_user.id, class: "ml-4" %>
+            </div>
           </div>
         </div>
 
         <div class="form-group row text">
+          <div class="col-3">
           <%= f.label :first_name, "氏名", class: "col-form-label col-3 font-weight-bold" %>
+          </div>
           <div class="col-4 light-text">
             <%= f.text_field :last_name, class: "form-control" %>
           </div>
@@ -21,7 +27,9 @@
         </div>
 
         <div class="form-group row text">
+          <div class="col-3">
           <%= f.label :first_name, "フリガナ", class: "col-form-label col-3 font-weight-bold" %>
+          </div>
           <div class="col-4 light-text">
             <%= f.text_field :last_name_kana, class: "form-control" %>
           </div>
@@ -31,22 +39,30 @@
         </div>
 
         <div class="form-group row text">
-          <%= f.label :email, "メールアドレス", class: "col-form-label col-3 font-weight-bold" %>
+          <div class="col-3">
+            <%= f.label :email, "メールアドレス", class: "col-form-label font-weight-bold" %>
+          </div>
           <div class="col-4 light-text">
             <%= f.email_field :email, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row text">
-          <%= f.label :is_deleted, "会員ステータス", class: "col-form-label col-3 font-weight-bold" %>
+          <div class="col-3">
+            <%= f.label :is_deleted, "会員ステータス", class: "col-form-label font-weight-bold" %>
+          </div>
           <div class="col-8 light-text">
             <div class="form-check form-check-inline">
               <%= f.radio_button :is_deleted, false, class: "form-check-input" %>
+              <div class="col-3">
               <%= f.label :is_deleted, "有効", value: false, class: "form-check-label" %>
+              </div>
             </div>
             <div class="form-check form-check-inline">
               <%= f.radio_button :is_deleted, true, class: "form-check-input" %>
+              <div class="col-3">
               <%= f.label :is_deleted, "退会", value: true, class: "form-check-label" %>
+              </div>
             </div>
           </div>
         </div>

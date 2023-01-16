@@ -23,3 +23,10 @@
 }
 
 .heart_red{color:#e54747;}
+
+.field_with_errors {
+  display: inline;
+  input, textarea {
+    border-color: red;
+  }
+}
