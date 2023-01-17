@@ -3,7 +3,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <% if end_user_signed_in? %>
         <a class="navbar-brand ml-5" href="/"><i class="fa-solid fa-plane fa-3x"></i></a>
+        <% elsif admin_signed_in? %>
+        <a class="navbar-brand ml-5" href="/admin/end_users"><i class="fa-solid fa-plane fa-3x"></i></a>
+        <% end %>
         <div class="collapse navbar-collapse justify-content-center">
 
             <!--タグ検索機能-->

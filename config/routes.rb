@@ -43,7 +43,7 @@ scope module: :public do
     collection do
       get 'search'
     end
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :index]
     resource :favorites, only: [:create, :destroy]
   end
 

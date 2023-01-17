@@ -22,6 +22,10 @@ def destroy
   end
 end
 
+def index
+  @comment = Comment.all
+end
+
 private
 def set_post
   @post = Post.find(params[:post_id])
