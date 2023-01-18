@@ -23,7 +23,7 @@ def destroy
 end
 
 def index
-  @comment = Comment.all
+  @comments = Comment.all
 end
 
 private

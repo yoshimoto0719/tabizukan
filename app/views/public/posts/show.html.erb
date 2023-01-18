@@ -34,7 +34,7 @@
   </div>
 
 <%- @comments.each do |c| %>
- <%= c.end_user.first_name %>
+ <%= c.end_user.last_name %>
  <%= simple_format(c.comment_text) %>
   <% if c.end_user.id == @post.end_user.id %>
   <%= link_to '削除', post_comment_path(@post, c), data: {confirm: '本当に削除しますか？'}, method: :delete %>
