@@ -8,11 +8,11 @@
         <% elsif admin_signed_in? %>
         <a class="navbar-brand ml-5" href="/admin/end_users"><i class="fa-solid fa-plane fa-3x"></i></a>
         <% end %>
-        
+
         <span class="nav-item active">
                     <%= link_to 'about', homes_about_path %>
         </span>
-        
+
         <div class="collapse navbar-collapse justify-content-center">
             <!--タグ検索機能-->
             <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
@@ -28,21 +28,21 @@
             <!--検索機能-->
             <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form d-flex") do |f| %>
             <%= f.text_field :search %>
-            <%= f.submit "search", class: "btn btn-primary" %>
+            <%= f.submit "search" %>
             <% end %>
 
         </div>
           <ul class="navbar-nav">
               <li class="nav-item active">
-                    <%= link_to posts_new_path, method: :get do %><i class="fa-regular fa-square-plus fa-3x"></i><% end %>
+                    <%= link_to posts_new_path, method: :get do %><i class="fa-regular fa-square-plus fa-2x" style="color: black;"></i><% end %>
               </li>
               <li class="nav-item active">
-                    <%= link_to favorites_end_user_path(current_end_user), method: :get do %><i class="fa-solid fa-heart heart_red fa-3x"></i><% end %>
+                    <%= link_to favorites_end_user_path(current_end_user), method: :get do %><i class="fa-solid fa-heart heart_red fa-2x pl-3"></i><% end %>
               </li>
-              
+
               <li class="nav-item active">
                     <%= link_to mypost_path, method: :get do %>
-                    <i class="fa-solid fa-circle-user fa-3x"></i>
+                    <i class="fa-solid fa-circle-user fa-2x pl-3" style="color: black;"></i>
                     <% end %>
               </li>
           </ul>
