@@ -1,4 +1,11 @@
-<h1 class="page_title">My Posts</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="page_title">My Posts</h1>
+
+    <%= link_to end_users_my_page_path, method: :get do %>
+    My Page
+    <% end %>
+  </div>
 
 <% if @posts.present? %>
           <% @posts.each do |post| %>
@@ -10,6 +17,4 @@
                     post is nothing
 <% end %>
 
-<%= link_to end_users_my_page_path, method: :get do %>
-マイページへ
-<% end %>
+</div>

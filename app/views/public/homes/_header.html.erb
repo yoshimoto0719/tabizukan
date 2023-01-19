@@ -37,9 +37,12 @@
                     <%= link_to posts_new_path, method: :get do %><i class="fa-regular fa-square-plus fa-2x" style="color: black;"></i><% end %>
               </li>
               <li class="nav-item active">
-                    <%= link_to favorites_end_user_path(current_end_user), method: :get do %><i class="fa-solid fa-heart heart_red fa-2x pl-3"></i><% end %>
+                  <% if end_user_signed_in? %>
+                    <%= link_to favorites_end_user_path(current_end_user.id), method: :get do %>
+                    <i class="fa-solid fa-heart heart_red fa-2x pl-3"></i>
+                    <% end %>
+                  <% end %>
               </li>
-
               <li class="nav-item active">
                     <%= link_to mypost_path, method: :get do %>
                     <i class="fa-solid fa-circle-user fa-2x pl-3" style="color: black;"></i>
