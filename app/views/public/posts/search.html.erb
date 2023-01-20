@@ -1,4 +1,4 @@
-<h2 class="page_title">Results index</h2>
+<h2 class="page_title">Search Results </h2>
 
 <% if @posts == [] %>
 <h2 class = "seach-result">検索結果はありません</h2>
@@ -7,7 +7,6 @@
     <% @posts.each do |post| %>
       <%= link_to post_path(post.id) do %>
       <%= image_tag post.image, size: "300x300", class: "post-img" %>
-      <p class = "root-show">information</p>
       <% end %>
     <% end %>
 </div>
