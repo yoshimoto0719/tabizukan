@@ -4,31 +4,27 @@
   <div class="container">
     <div class="card-container">
       <div class="card-body">
-          <h3 class="card-title text-center mb-4 mt-1">registration</h3>
+          <h3 class="card-title text-center mb-4 mt-1">Registration</h3>
 
   <div class="field">
-    <%= f.label :"姓", autofocus: true %>
-    <%= f.text_field :last_name %>
-    <%= f.label :"名" %>
-    <%= f.text_field :first_name %>
+    <%= f.label :名前 %><br />
+    <%= f.text_field :last_name, placeholder:'姓' %>
+    <%= f.text_field :first_name, placeholder:'名' %>
   </div>
 
   <div class="field">
-    <%= f.label :"フリガナ" %>
-    <%= f.label :"(セイ)" %>
-    <%= f.text_field :last_name_kana %>
-    <%= f.label :"(メイ)" %>
-    <%= f.text_field :first_name_kana %>
+    <%= f.text_field :last_name_kana, placeholder:'セイ' %>
+    <%= f.text_field :first_name_kana, placeholder:'メイ' %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email", placeholder:'email' %>
   </div>
 
   <div class="field">
-    <%= f.label :"電話番号（ハイフン無し）" %>
-    <%= f.text_field :phone_number %>
+    <%= f.label :"電話番号（ハイフン無し）" %><br />
+    <%= f.text_field :phone_number, placeholder:'phone_number' %>
   </div>
 
   <div class="field">
@@ -41,21 +37,21 @@
 
   <div class="field">
     <%= f.label :パスワード（確認） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'password_confirmation' %>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center">
     <%= f.submit "登録",class: "btn btn-sm btn-primary " %>
   </div>
 
   <div class="row">
-    <div class="col-xl-4 ml-4">
+    <div>
       <h5 class="my-4">既に登録済みの方</h5>
     </div>
     </div>
-    <span class="col-xl-4 ml-4">
-  　   <%= link_to "こちら", "/end_users/sign_in" %>からログインして下さい。
-    </span>
+    <div class="row justify-content-center">
+  　  ログインは <%= link_to "こちら", "/end_users/sign_in" %>
+    </div>
 
      </div>
     </div>
