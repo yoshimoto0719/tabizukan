@@ -1,9 +1,10 @@
 <h5 class="page_title ml-3">Edit My Page</h5>
 
-<div class="col-10 mx-auto ">
+<div class="container pt-3">
+<div class="col-10 mx-auto">
     <%= form_with model: @end_user, url: end_users_information_path, local:true do |f| %>
 
-    <div class="form-group row text mt-3">
+    <div class="form-group row text pt-3">
           <%= f.label :first_name, "氏名", class: "col-3 col-form-label" %>
           <div class="col-4">
             <%= f.text_field :last_name, class: "form-control" %>
@@ -37,15 +38,16 @@
           </div>
         </div>
 
-        <div class="form_group row my-4 text">
+        <div class="form_group row mt-5 text">
           <div class="col-2 offset-3">
-            <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+            <%= f.submit "Save", class: "btn btn-success" %>
           </div>
 
           <div class="offset-1 col-2">
-            <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger btn-block" %>
+            <%= link_to "Sign Out", unsubscribe_path, class: "btn btn-danger btn-block" %>
           </div>
 
         </div>
 
     <% end %>
+</div>
