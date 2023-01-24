@@ -1,20 +1,25 @@
 <div class="container">
   <div class="row">
-    <h1 class="page_title">My Posts</h1>
-
-    <%= link_to end_users_my_page_path, method: :get do %>
-    My Page
-    <% end %>
+    <div class="col-3">
+       <h1 class="page_title">My Posts</h1>
+    </div>
+    <div class="offset-8 mt-3">
+      <%= link_to end_users_my_page_path, method: :get do %>
+        My Page
+      <% end %>
+    </div>
   </div>
 
-<% if @posts.present? %>
-          <% @posts.each do |post| %>
-                    <%= link_to post_path(post) do %>
-                    <%= image_tag post.image, size: "300x300" %>
-                    <% end %>
-          <% end %>
-<% else %>
-                    post is nothing
-<% end %>
+  <div class="row justify-content-center m-3">
+  <% if @posts.present? %>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <%= image_tag post.image, size: "300x300" %>
+       <% end %>
+    <% end %>
+  <% else %>
+    post is nothing
+  <% end %>
+  </div>
 
 </div>

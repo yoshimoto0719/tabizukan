@@ -1,27 +1,30 @@
-<h1 class="page_title">Information</h1>
-
-    <h4>投稿者</h4>
-    <%= @end_user.last_name %> <%= @end_user.first_name %>
-    <h4>画像</h4>
+<h1 class="page_title ml-3">Information</h1>
+  <div class="container text-center">
+    <!--<h4>画像</h4>-->
       <%= image_tag @post.image, size: "800x500" %>
       <% @post.tags.each do |tag| %>
         <%= tag.name %>
       <% end %>
-    <h4>場所</h4>
+    <h4>submitted by</h4>
+    <%= @end_user.last_name %> <%= @end_user.first_name %>
+    <h4>Location</h4>
       <%= @post.location %>
-    <h4>料金</h4>
+    <h4>Fee</h4>
       ¥<%= @post.cost %>
-    <h4>スケジュール</h4>
+    <h4>Schedule</h4>
       <%= @post.day1 %>泊<%= @post.day2 %>日
-    <h4>説明</h4>
+    <h4>Information</h4>
       <%= @post.description %>
-
+  </div>
+  
+  <div class="container text-center">
     <% if @post.end_user == current_end_user %>
-      <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
-      <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "Edit", edit_post_path(@post), class: "btn btn-success" %>
+      <%= link_to "Delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
+  </div>
 
-  <div>
+  <div class="container text-center">
     <% if @post.favorited?(current_end_user) %>
     <%= link_to post_favorites_path(@post.id), method: :delete do %>
         <span style="color:red;">❤︎</span>
@@ -33,17 +36,18 @@
     <% end %>
   </div>
 
-<%- @comments.each do |c| %>
- <%= c.end_user.last_name %>
- <%= simple_format(c.comment_text) %>
-  <% if c.end_user.id == @post.end_user.id %>
-  <%= link_to '削除', post_comment_path(@post, c), data: {confirm: '本当に削除しますか？'}, method: :delete %>
-<% end %>
+  <div class="container text-center">
+    <%- @comments.each do |c| %>
+      <h4>Comment</h4>
+      <%= c.end_user.last_name %><%= c.end_user.first_name %>
+      <%= simple_format(c.comment_text) %>
+      <% if c.end_user.id == @post.end_user.id %>
+      <%= link_to '削除', post_comment_path(@post, c), data: {confirm: '本当に削除しますか？'}, method: :delete %>
+      <% end %>
+    <% end %>
 
-<% end %>
-
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :comment_text %>
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.text_field :comment_text %>
+      <%= f.submit 'Comment' %>
+    <% end %>
+  </div>

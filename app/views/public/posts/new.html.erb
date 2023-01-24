@@ -1,9 +1,10 @@
-<h1 class="page_title">Form</h1>
+<h1 class="page_title ml-3">Form</h1>
+  <div class="container">
   <%= form_with model: @post do |f| %>
     <%= render 'layouts/error_messages', resource: f.object %>
-    <h4>画像</h4>
+    <h4>Image</h4>
       <%= f.file_field :image, accept: "image/*" %>
-  <div class="check_box">
+  <div class="check_box pt-3">
     <h4>国内/海外</h4>
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
        <div>
@@ -14,13 +15,14 @@
        </div>
       <% end %>
   </div>
-    <h4>場所</h4>
+    <h4>Location</h4>
       <%= f.text_field :location %>
-    <h4>料金</h4>
+    <h4>Fee</h4>
       ¥<%= f.text_field :cost %>
-    <h4>スケジュール</h4>
+    <h4>Schedule</h4>
       <%= f.text_field :day1 %>泊<%= f.text_field :day2 %>日
-    <h4>説明</h4>
+    <h4>Information</h4>
       <%= f.text_area :description %>
-    <%= f.submit '投稿' %>
+    <%= f.submit 'Post' %>
   <% end %>
+  </div>

@@ -1,6 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+h1{
+  font-family: 'Oswald', sans-serif;
+}
+
+a{
+  font-family: 'Oswald', sans-serif;
+}
+
 .listings {
 
   height: 100%;
