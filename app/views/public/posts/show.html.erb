@@ -33,6 +33,9 @@
   <div class="container text-center">    
     <h4>submitted by</h4>
     <%= @end_user.last_name %> <%= @end_user.first_name %>
+    <% @post.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
     <h4>Location</h4>
       <%= @post.location %>
     <h4>Fee</h4>

@@ -7,10 +7,15 @@ class Public::PostsController < ApplicationController
   end
 
   def create
+    tag_id = params[:post][:tag_id]
     @post = Post.new(post_params)
     @post.end_user = current_end_user
-    @post.save
-    redirect_to mypost_path(@post.id)
+    if @post.save
+      PostTag.create(post_id: @post.id, tag_id: tag_id)
+      redirect_to mypost_path(@post.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -48,7 +53,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:location, :cost, :day1, :day2, :image, :description, :tag_ids)
+    params.require(:post).permit(:location, :cost, :day1, :day2, :image, :description)
   end
 
 end

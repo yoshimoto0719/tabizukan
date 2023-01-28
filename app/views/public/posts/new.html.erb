@@ -6,14 +6,19 @@
       <%= f.file_field :image, accept: "image/*" %>
   <div class="check_box pt-3">
     <h4>国内/海外</h4>
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-       <div>
-         <%= tag.label do %>
-           <%= tag.check_box %>
-           <%= tag.text %>
-         <% end %>
-       </div>
+      <% Tag.all.each do |tag| %>
+       <label><%= f.radio_button(:tag_id, tag.id) %><%= tag.name %></label>
       <% end %>
+
+
+      <%#= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+       <div>
+         <%#= tag.label do %>
+           <%#= tag.check_box %>
+           <%#= tag.text %>
+         <%# end %>
+       </div>
+      <%# end %>
   </div>
     <h4>Location</h4>
       <%= f.text_field :location %>
