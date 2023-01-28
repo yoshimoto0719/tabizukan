@@ -5,8 +5,9 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
   has_many :comments, dependent: :destroy
-  
+
   validates :image, presence: true
+  validates :discription, presence: true, length: { maximum: 1000 }   # 空をバリデーション、文字数制限
 
   def self.search(search)
     if search
