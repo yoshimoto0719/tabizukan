@@ -17,7 +17,7 @@
 
         <div class="collapse navbar-collapse justify-content-center">
             <!--タグ検索機能-->
-            <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+            <%= form_tag search_posts_path, method: :get, class: 'boards__searchForm' do %>
             <%= select_tag :tag_id,
               options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                      {
