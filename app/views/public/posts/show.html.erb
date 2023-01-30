@@ -2,11 +2,8 @@
   <div class="container text-center">
     <!--<h4>画像</h4>-->
       <%= image_tag @post.image, size: "800x500" %>
-      <% @post.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
   </div>
-      
+
   <div class="row offset-2">
     <div class="col">
     <% if @post.favorited?(current_end_user) %>
@@ -19,9 +16,9 @@
     <% end %>
     <% end %>
     </div>
-    
+
     <div class="col offset-1 pt-4">
-    
+
 
     <%= form_for [@post, @comment] do |f| %>
       <%= f.text_field :comment_text %>
@@ -29,10 +26,11 @@
     <% end %>
     </div>
   </div>
-  
-  <div class="container text-center">    
+
+  <div class="container text-center">
     <h4>submitted by</h4>
     <%= @end_user.last_name %> <%= @end_user.first_name %>
+    <h4>Tag</h4>
     <% @post.tags.each do |tag| %>
       <%= tag.name %>
     <% end %>
@@ -52,7 +50,7 @@
       <%= link_to "Delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
   </div>
-  
+
   <div class="container text-center pt-2">
     <%- @comments.each do |c| %>
       <h4>Comment</h4>

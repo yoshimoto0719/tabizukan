@@ -1,7 +1,6 @@
 <h1>コメント一覧</h1>
 
 <%- @comments.each do |c| %>
-  <%= c.end_user.last_name %>
   <%= simple_format(c.comment_text) %>
   <%= link_to '削除', admin_end_user_path(end_user), data: {confirm: 'コメントを削除しますか？'}, method: :delete %>
 <% end %>
