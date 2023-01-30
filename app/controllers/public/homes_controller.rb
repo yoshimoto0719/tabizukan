@@ -3,7 +3,7 @@ class Public::HomesController < ApplicationController
 
   def top
     @posts = Post.all
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all.order(created_at: :DESC)
     @end_user = current_end_user
   end
 

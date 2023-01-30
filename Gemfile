@@ -60,3 +60,5 @@ gem 'devise'
 gem 'seed-fu', '~> 2.3'
 
 gem 'ransack'
+
+gem 'image_processing', '~> 1.2'

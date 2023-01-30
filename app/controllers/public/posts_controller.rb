@@ -46,7 +46,7 @@ class Public::PostsController < ApplicationController
   end
 
   def mypost
-    @posts = current_end_user.posts
+    @posts = current_end_user.posts.order(created_at: :DESC)
     @end_user = current_end_user
   end
 
