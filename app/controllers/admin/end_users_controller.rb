@@ -21,6 +21,11 @@ class Admin::EndUsersController < ApplicationController
     end
   end
 
+  def comments
+    @end_user = EndUser.find(params[:id])
+    @comments = @end_user.comments
+  end
+
   private
 
    def end_user_params

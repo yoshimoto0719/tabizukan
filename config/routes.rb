@@ -16,9 +16,13 @@ devise_for :end_users,skip: [:passwords], controllers: {
 # 管理者用(admin)
 namespace :admin do
   get root to: 'homes#top'
-  resources :end_users
+  resources :end_users do
+    member do
+      get 'comments'
+    end
+  end
   resources :posts
-  resources :comments
+  resources :comments, only: [:destroy]
 end
 
 # 顧客用(public)
