@@ -26,6 +26,11 @@ class Admin::EndUsersController < ApplicationController
     @comments = @end_user.comments
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+  end
+
   private
 
    def end_user_params

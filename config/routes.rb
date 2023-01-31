@@ -20,9 +20,10 @@ namespace :admin do
     member do
       get 'comments'
     end
+    resources :comments, only: [:destroy]
   end
   resources :posts
-  resources :comments, only: [:destroy]
+
 end
 
 # 顧客用(public)

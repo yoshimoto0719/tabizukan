@@ -42,7 +42,11 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:search])
+    if params[:search]
+      @posts = Post.search(params[:search])
+    else
+      @posts = Post.tag_search(params[:tag_id])
+    end
   end
 
   def mypost

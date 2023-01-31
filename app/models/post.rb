@@ -17,6 +17,11 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.tag_search(tag_id)
+    post_tags = PostTag.where(tag_id: tag_id).pluck(:post_id)
+    Post.where(id: post_tags)
+  end
+
   def favorited?(end_user)
    favorites.where(end_user_id: end_user_id).exists?
   end
