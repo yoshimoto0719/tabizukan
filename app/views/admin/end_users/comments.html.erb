@@ -1,3 +1,11 @@
-<% @comments.each do |comment| %>
-  <%= comment.comment_text %>
-<% end %>
+<h1 class="page_title ml-3 mb-3">Users Comments</h1>
+</br>
+<table class="table table-hover">
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.comment_text %></td>
+        <td><%= link_to 'delete', comments_admin_end_user_path(@end_user), data: {confirm: 'コメントを削除しますか？'}, method: :delete  %></td>
+      </tr>
+    <% end %>
+</table>
+
