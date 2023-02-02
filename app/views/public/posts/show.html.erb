@@ -8,11 +8,11 @@
     <div class="col">
     <% if @post.favorited?(current_end_user) %>
     <%= link_to post_favorites_path(@post.id), method: :delete do %>
-        <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>
+        <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
     <% end %>
     <% else %>
     <%= link_to post_favorites_path(@post.id), method: :post do %>
-        <span class="heart">❤︎</span><%= @post.favorites.count %>
+        <span class="heart">❤︎</span><%= @post.favorites.count %>likes
     <% end %>
     <% end %>
     </div>
