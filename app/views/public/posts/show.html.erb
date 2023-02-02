@@ -6,19 +6,18 @@
 
   <div class="row offset-2">
     <div class="col">
-    <% if @post.favorited?(current_end_user) %>
-    <%= link_to post_favorites_path(@post.id), method: :delete do %>
-        <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
-    <% end %>
+    <% if @post.favorited?(@end_user) %>
+      <%= link_to post_favorites_path(@post.id), method: :delete do %>
+          <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
+      <% end %>
     <% else %>
-    <%= link_to post_favorites_path(@post.id), method: :post do %>
-        <span class="heart">❤︎</span><%= @post.favorites.count %>likes
-    <% end %>
+      <%= link_to post_favorites_path(@post.id), method: :post do %>
+          <span class="heart">❤︎</span><%= @post.favorites.count %>likes
+      <% end %>
     <% end %>
     </div>
 
     <div class="col offset-1 pt-4">
-
 
     <%= form_for [@post, @comment] do |f| %>
       <%= f.text_field :comment_text %>
@@ -47,7 +46,7 @@
   <div class="container text-center pt-2">
     <% if @post.end_user == current_end_user %>
       <%= link_to "Edit", edit_post_path(@post), class: "btn btn-success" %>
-      <%= link_to "Delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "Delete", post_path(@post.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
   </div>
 

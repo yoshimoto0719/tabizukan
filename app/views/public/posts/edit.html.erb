@@ -1,5 +1,6 @@
-<h1 class="page_title">投稿編集画面</h1>
+<h1 class="page_title ml-3">Edit</h1>
 
+<div class="container">
   <%= form_with model: @post do |f| %>
     <h4>画像</h4>
       <%= f.file_field :image, accept: "image/*" %>
@@ -22,5 +23,6 @@
       <%= f.text_field :day1 %>泊<%= f.text_field :day2 %>日
     <h4>説明</h4>
       <%= f.text_area :description %>
-    <%= f.submit '保存' %>
+    <%= f.submit 'Save' %>
   <% end %>
+</div>

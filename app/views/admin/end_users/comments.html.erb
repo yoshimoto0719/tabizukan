@@ -4,7 +4,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.comment_text %></td>
-        <td><%= link_to 'delete', admin_end_user_comment_path(@end_user, comment), data: {confirm: 'コメントを削除しますか？'}, method: :delete  %></td>
+        <td><%= link_to 'delete', admin_end_user_comment_path(@end_user, comment), class: "btn btn-danger", data: {confirm: 'コメントを削除しますか？'}, method: :delete  %></td>
       </tr>
     <% end %>
 </table>
