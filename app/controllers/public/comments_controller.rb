@@ -5,7 +5,7 @@ class Public::CommentsController < ApplicationController
 def create
   @comment = @post.comments.create(comment_params)
   if @comment.save
-    redirect_to root_path(@post), notice: 'コメントしました'
+    redirect_to post_path(@post), notice: 'コメントしました'
   else
     flash.now[:alert] = 'コメントに失敗しました'
     render post_path(@post)

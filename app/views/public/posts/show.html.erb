@@ -6,23 +6,22 @@
 
   <div class="row offset-2">
     <div class="col">
-    <% if @post.favorited?(@end_user) %>
-      <%= link_to post_favorites_path(@post.id), method: :delete do %>
-          <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
+      <% if @post.favorited?(@end_user) %>
+        <%= link_to post_favorites_path(@post.id), method: :delete do %>
+            <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
+        <% end %>
+      <% else %>
+        <%= link_to post_favorites_path(@post.id), method: :post do %>
+            <span class="heart">❤︎</span><%= @post.favorites.count %>likes
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to post_favorites_path(@post.id), method: :post do %>
-          <span class="heart">❤︎</span><%= @post.favorites.count %>likes
-      <% end %>
-    <% end %>
     </div>
 
     <div class="col offset-1 pt-4">
-
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_field :comment_text %>
-      <%= f.submit 'Comment' %>
-    <% end %>
+      <%= form_for [@post, @comment] do |f| %>
+        <%= f.text_field :comment_text %>
+        <%= f.submit 'Comment' %>
+      <% end %>
     </div>
   </div>
 
