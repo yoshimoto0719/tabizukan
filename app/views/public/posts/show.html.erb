@@ -55,8 +55,8 @@
       <h4>Comment</h4>
       <%= c.end_user.last_name %><%= c.end_user.first_name %>
       <%= simple_format(c.comment_text) %>
-      <% if c.end_user.id == @post.end_user.id %>
-      <%= link_to 'delete', post_comment_path(@post, c), data: {confirm: '本当に削除しますか？'}, method: :delete %>
+      <% if c.end_user == current_end_user %>
+      <%= link_to 'delete', post_comment_path(@post, c), class: "btn btn-danger", data: {confirm: '本当に削除しますか？'}, method: :delete %>
       <% end %>
     <% end %>
   </div>
