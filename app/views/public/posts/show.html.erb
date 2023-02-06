@@ -6,7 +6,7 @@
 
   <div class="row offset-2">
     <div class="col">
-      <% if @post.favorited?(@end_user) %>
+      <% if @post.favorited?(current_end_user) %>
         <%= link_to post_favorites_path(@post.id), method: :delete do %>
             <span class="heart" style="color:red;">❤︎</span><%= @post.favorites.count %>likes
         <% end %>
